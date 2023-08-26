@@ -153,8 +153,8 @@ namespace InfernumMode.Content.Credits
             Main.pixelShader.CurrentTechnique.Passes[0].Apply();
 
             // Draw the infernal chalice
-            Texture2D chaliceTexture = ModContent.Request<Texture2D>("InfernumMode/Content/Tiles/InfernalChaliceTileAnimation").Value;
-            Texture2D chaliceGlowmask = ModContent.Request<Texture2D>("InfernumMode/Content/Tiles/InfernalChaliceTileAnimation").Value;
+            Texture2D chaliceTexture = ModContent.Request<Texture2D>("InfernumMode/Content/Tiles/Wishes/InfernalChaliceTileAnimation").Value;
+            Texture2D chaliceGlowmask = ModContent.Request<Texture2D>("InfernumMode/Content/Tiles/Wishes/InfernalChaliceTileAnimation").Value;
             int frame = (int)(Main.GlobalTimeWrappedHourly * 11f) % 8;
             Vector2 drawPosition = ImagePosition + new Vector2(0f, -13.5f);
             Rectangle frameRect = chaliceTexture.Frame(1, 8, 0, frame);
