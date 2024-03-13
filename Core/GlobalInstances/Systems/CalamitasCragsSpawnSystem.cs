@@ -1,4 +1,5 @@
 using CalamityMod;
+using CalamityMod.CalPlayer;
 using InfernumMode.Content.BehaviorOverrides.BossAIs.SupremeCalamitas.CragsCutscene;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -32,7 +33,7 @@ namespace InfernumMode.Core.GlobalInstances.Systems
             for (int i = 0; i < Main.maxPlayers; i++)
             {
                 Player p = Main.player[i];
-                if (!p.dead && p.active && !CalamityUtils.AnyBossNPCS() && p.Calamity().ZoneCalamity && p.WithinRange(calSpawnPosition, 1800f) && !p.WithinRange(calSpawnPosition, 1000f))
+                if (!p.dead && p.active && !CalamityPlayer.areThereAnyDamnBosses && p.Calamity().ZoneCalamity && p.WithinRange(calSpawnPosition, 1800f) && !p.WithinRange(calSpawnPosition, 1000f))
                 {
                     Utilities.NewProjectileBetter(calSpawnPosition, Vector2.Zero, ModContent.ProjectileType<CalamitasCutsceneProj>(), 0, 0f);
                     WorldSaveSystem.MetCalamitasAtCrags = true;

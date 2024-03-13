@@ -1,4 +1,5 @@
 using CalamityMod;
+using CalamityMod.CalPlayer;
 using CalamityMod.NPCs.Signus;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -19,7 +20,7 @@ namespace InfernumMode.Core.GlobalInstances.Systems
             for (int i = 0; i < Main.maxPlayers; i++)
             {
                 Player p = Main.player[i];
-                if (!p.dead && p.active && !CalamityUtils.AnyBossNPCS() && p.Infernum_Biome().ZoneProfaned && p.WithinRange(signusSpawnPosition, 2000f))
+                if (!p.dead && p.active && CalamityPlayer.areThereAnyDamnBosses && p.Infernum_Biome().ZoneProfaned && p.WithinRange(signusSpawnPosition, 2000f))
                 {
                     int signus = NPC.NewNPC(new EntitySource_WorldEvent(), (int)signusSpawnPosition.X, (int)signusSpawnPosition.Y, ModContent.NPCType<Signus>(), 0, 0f, 0f, 0f, 1f);
                     NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, signus);
